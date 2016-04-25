@@ -1,5 +1,4 @@
-
-#coding:utf-8
+# coding:utf-8
 # Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
 
 # For example,
@@ -16,14 +15,14 @@
 
 class Solution(object):
     def missingNumber(self, nums):
-        if(nums == None or len(nums) == 0):
-        	return None;
+        if nums is None or len(nums) == 0:
+            return None
 
-    	xor = reduce(lambda x,y: x ^ y , range(0,len(nums)+1),0);
+        xor = reduce(lambda x, y: x ^ y, range(0, len(nums) + 1), 0)
 
-    	return reduce(lambda x,y:x ^ y, nums ,xor)
-        
+        return reduce(lambda x, y: x ^ y, nums, xor)
 
-s = Solution();
-nums = [1];
-print s.missingNumber(nums);
+
+s = Solution()
+nums = [1]
+print s.missingNumber(nums)

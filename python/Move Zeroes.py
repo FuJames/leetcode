@@ -7,26 +7,24 @@
 # Minimize the total number of operations.
 
 class Solution(object):
-	def moveZeroes(self, nums):
-		if(nums == None or len(nums) == 0):
-			return;
+    def moveZeroes(self, nums):
+        if nums is None or len(nums) == 0:
+            return
+        i = j = 0
+        while j < len(nums):
+            if nums[j] != 0:
+                if i != j:
+                    nums[i] = nums[j]
+                    nums[j] = 0
+                i += 1
+            j += 1
 
-		i = j = 0;
 
-		while (j < len(nums)):
-			if(nums[j] != 0):
-				if(i != j):
-					nums[i] = nums[j];
-					nums[j] = 0;
-				i = i + 1;
+s = Solution()
+nums = [0, 1, 0, 3, 12]
+s.moveZeroes(nums)
+print nums
 
-			j = j + 1;
-
-s = Solution();
-nums =[0, 1, 0, 3, 12];
-s.moveZeroes(nums);
-print nums;
-
-nums =[1, 0, 3, 12];
+nums = [1, 0, 3, 12];
 s.moveZeroes(nums);
 print nums;

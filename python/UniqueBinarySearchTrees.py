@@ -7,7 +7,6 @@
 class Solution(object):
 	def numTrees(self, n):
 		ut = {0:1,1:1} 
-		sum = 0
 		for i in range(2,n+1):
 			ut[i] = 0
 			for j in range(0,i):

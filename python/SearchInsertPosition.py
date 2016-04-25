@@ -1,5 +1,7 @@
+# coding:utf8
 # Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
-
+# binary search
+# 注意边界！！！
 class Solution(object):
 	def searchInsert(self, nums, target):
 		low = 0

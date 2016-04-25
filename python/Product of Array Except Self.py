@@ -24,11 +24,9 @@ class Solution(object):
 
 	   	# left[i] , start with 1 , end with n-2
 	   	for i in range(size - 1):
-	   		print i
 			leftProduction *= nums[i]; #leftProduction is the production of nums[i]
 			output[i+1] *= leftProduction;
 
-		print output
 
 		rightProduction = 1;
 		# right[i] , start with n-1 , end with 1
