@@ -5,7 +5,6 @@
 # Note:
 # You must do this in-place without making a copy of the array.
 # Minimize the total number of operations.
-
 class Solution(object):
     def moveZeroes(self, nums):
         if nums is None or len(nums) == 0:
