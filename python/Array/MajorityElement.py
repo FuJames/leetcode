@@ -33,6 +33,5 @@ class Solution2(object):
                     counter -= 1
         return candidate
 
-
 s = Solution2()
 print s.majorityElement([1, 2, 2, 3, 2])
