@@ -18,7 +18,7 @@ class Solution(object):
                 minLength = min(end - start, minLength)
                 sum -= nums[start]
                 start += 1
-            
+
 
         return [0, minLength][minLength <= size] # 如果minLength没有更改过，则不存在满足条件的子数组，返回0；反则，返回minLength
 
