@@ -20,7 +20,7 @@ package main.java.string;
  *
  */
 public class LongestPalindromicSubstring {
-    //提交失败版本，o(n^3)版本
+    //提交失败版本，o(n^3)
     public String longestPalindrome(String s) {
         //边界检查 <=1
         if(s == null || s.length() <= 1){
