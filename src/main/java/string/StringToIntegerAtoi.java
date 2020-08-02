@@ -60,6 +60,21 @@ public class StringToIntegerAtoi {
             //错误点1：字符转换为整数时，没有-'0'
             int num = c - '0';
             r = r*10 + num;
+            //错误点4：long整数相加时，未考虑到最大值溢出，当最大值溢出时，加法结果会变成不可预测的值！！
+            //错误点5：提前判断r是否超过int长度，防止后面long类型溢出
+            if(r >= Integer.MAX_VALUE){
+                if(isPositive) {
+                    return Integer.MAX_VALUE;
+                }else {
+                    //错误点6：int整数区间为[-2^31,2^31-1]，当输入-2^31时，返回了Integer.MIN_VALUE
+//                    return Integer.MIN_VALUE;
+                    if(r == Integer.MAX_VALUE){
+                        return (int)r*-1;
+                    }else {
+                        return Integer.MIN_VALUE;
+                    }
+                }
+            }
             i++;
         }
         //错误点2：判断r是否越界时，没有带上符号位
@@ -74,8 +89,14 @@ public class StringToIntegerAtoi {
     }
 
     public static void main(String[] args) {
-        String s = " ";
+//        String s = "9223372036854775809";
+        String s = "18446744073709551617";
+
         StringToIntegerAtoi stringToIntegerAtoi = new StringToIntegerAtoi();
         System.out.println(stringToIntegerAtoi.myAtoi(s));
+
+        //错误点：当整数类型溢出后，比如下面的r*10，结果是随机的，不可预测的值！！
+        long r = 1844674407370955161l;
+        System.out.println(r*10);
     }
 }
