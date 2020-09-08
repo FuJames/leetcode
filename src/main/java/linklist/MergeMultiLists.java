@@ -1,4 +1,4 @@
-package main.java;
+package main.java.linklist;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,25 +7,9 @@ import java.util.List;
  * @author fuqianzhong
  * @date 2020/9/8
  * /**
- * Print a given matrix in couter-clock spiral form
- *
- * Example I:
- * Input:  1    2   3   4
- *         5    6   7   8
- *         9   10  11  12
- *         13  14  15  16
- *
- * Output: 1 2 3 4 8 12 16 15 14 13 9 5 6 7 11 10
- *
- * Example II:
- * Input:  1   2   3   4  5   6
- *         7   8   9  10  11  12
- *         13  14  15 16  17  18
- *
- * Output: 1 2 3 4 5 6 12 18 17 16 15 14 13 7 8 9 10 11
  *
  */
-public class Tester {
+public class MergeMultiLists {
     public static void main(String[] args) {
         //head1=1,3,5,7,9;head2=2,4,6,8,10;head3=3,5,8,9,10
         Node head14=new Node(9,null);
@@ -75,7 +59,7 @@ public class Tester {
             }
         }
         //构造新的数组，除去min，包括min.next
-        //为何长度为length-1的时候，会超长呢？？
+        //错误点：为何长度为length-1的时候，会超长呢？？ sortedList记录的是根节点的链表，所以，最终结果可能为length或lengh-1，为动态的，需要选用list
 //        Node temp = new Node[sortedList.length-1];
         List<Node> list = new ArrayList<>();
         for (Node node : sortedList){
