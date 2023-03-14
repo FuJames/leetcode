@@ -34,6 +34,7 @@ public class cengxubianli {
         //记录已遍历的路径
         List<Integer> r = new ArrayList<>();
 
+
         //根节点
         Node n = new Node();
         Node l = new Node();
