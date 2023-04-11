@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * 输入：一颗树的根节点
@@ -17,20 +14,20 @@ public class cengxubianli {
 
     public static void main(String[] args) {
         /**
-         * 压入元素(添加)：add()、offer()
-         * 相同：未超出容量，从队尾压入元素，返回压入的那个元素。
-         * 区别：在超出容量时，add()方法会对抛出异常，offer()返回false
-         *
-         * 弹出元素(删除)：remove()、poll()
-         * 相同：容量大于0的时候，删除并返回队头被删除的那个元素。
-         * 区别：在容量为0的时候，remove()会抛出异常，poll()返回false
-         *
-         * 获取队头元素(不删除)：element()、peek()
-         * 相同：容量大于0的时候，都返回队头元素。但是不删除。
-         * 区别：容量为0的时候，element()会抛出异常，peek()返回null。
+         offer：添加元素
+         poll：获取元素
          */
         //层序遍历的fifo 队列，记录待遍历列表，入队offer，出队poll
         Queue<Node> q = new LinkedList<>();
+        System.out.println(q.poll());
+        Stack<Integer> s = new Stack<>();
+        s.push(1);
+        s.push(2);
+        System.out.println(s.peek());
+        System.out.println(s.pop());
+        System.out.println(s.peek());
+        System.out.println(s.pop());
+        System.out.println(s.peek());
         //记录已遍历的路径
         List<Integer> r = new ArrayList<>();
 
