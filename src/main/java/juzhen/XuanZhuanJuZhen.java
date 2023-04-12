@@ -1,8 +1,8 @@
-import com.sun.xml.internal.fastinfoset.tools.XML_SAX_StAX_FI;
+package juzhen;
 
 /**
  * https://leetcode.cn/problems/rotate-matrix-lcci/description/
- * leetcode：旋转矩阵
+ * leetcode：90度顺时针旋转旋转矩阵
  */
 public class XuanZhuanJuZhen {
     public static void main(String[] args) {
