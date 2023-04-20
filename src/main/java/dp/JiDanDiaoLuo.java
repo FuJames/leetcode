@@ -44,7 +44,7 @@ import java.util.Map;
  */
 public class JiDanDiaoLuo {
     public static void main(String[] args) {
-        System.out.println(superEggDrop(3,14));
+        System.out.println(superEggDrop(2,6));
     }
     public static int superEggDrop(int k, int n) {
         if(k <= 0){
@@ -64,15 +64,42 @@ public class JiDanDiaoLuo {
             c[1][j] = j;
         }
         Map<String,Integer> tmp = new HashMap<>();
+
         for (int i = 2; i <= k; i++) {
             for (int j = 1; j <= n ; j++) {
-//                int min = Integer.MAX_VALUE;
-                c[i][j] = Integer.MAX_VALUE;
-                for (int l = 1; l <= j; l++) {
-//                    min = Math.min(Math.max(1+c[i-1][l-1],1+c[i][j-l]),min);//提交超时
-                    c[i][j] = Math.min(Math.max(1+c[i-1][l-1],1+c[i][j-l]),c[i][j]);//提交超时
-                }
+                int min = Integer.MAX_VALUE;
+                //每一层都扔，最终提交leetcode超时，O(K*N^2)
+//                for (int l = 1; l <= j; l++) {
+//                    min = Math.min(Math.max(1+c[i-1][l-1],1+c[i][j-l]),min);
+//                }
 //                c[i][j] = min;
+                //改进算法：二分查找扔，不从第一层向上扔，而是先从中间楼层扔，如果蛋碎了，向下找中间楼层，如果蛋没碎，向上找中间楼层
+                int left = 1, right = j;
+                while (left<=right){
+                    int mid = (left+right)/2;//选择mid层开始扔
+                    int broken = 1+c[i-1][mid-1];
+                    int notBroken = 1+c[i][j-mid];
+                    if(broken>notBroken){//蛋碎
+                        right = mid - 1;
+                        min = Math.min(broken,min);
+                    }else if (broken<notBroken){//蛋未碎
+                        left = mid+1;
+                        min = Math.min(notBroken,min);
+                    }else {//精华：当broken=notBroken时，可以确认c[i][j]就是最小值，无需再寻找。
+                        //min = Math.min(Math.max(1+c[i-1][l-1],1+c[i][j-l]),min);自变量是l，当l增加时，c[i-1][l-1]单调递增，因为l越大，需要试的次数越多；
+                        // 1+c[i][j-l]单调递减，所以两线交点就是两者的最小值。
+                        min = Math.min(broken,min);
+                        break;
+                    }
+//                    if(broken>=notBroken){//错误
+//                        right = mid - 1;
+//                        min = Math.min(broken,min);
+//                    }else {
+//                        left = mid+1;
+//                        min = Math.min(notBroken,min);
+//                    }
+                }
+                c[i][j] = min;
             }
         }
         return c[k][n];
