@@ -85,9 +85,9 @@ public class JiDanDiaoLuo {
                     }else if (broken<notBroken){//蛋未碎
                         left = mid+1;
                         min = Math.min(notBroken,min);
-                    }else {//精华：当broken=notBroken时，可以确认c[i][j]就是最小值，无需再寻找。
+                    }else {//精华：当broken=notBroken时，可以确认c[i][j]就是当前值，无需再寻找。
                         //min = Math.min(Math.max(1+c[i-1][l-1],1+c[i][j-l]),min);自变量是l，当l增加时，c[i-1][l-1]单调递增，因为l越大，需要试的次数越多；
-                        // 1+c[i][j-l]单调递减，所以两线交点就是两者的最小值。
+                        //1+c[i][j-l]单调递减，所以两线交点就是两者的最小值。
                         min = Math.min(broken,min);
                         break;
                     }
