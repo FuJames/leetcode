@@ -26,7 +26,7 @@ package dp;
  *  d[i][j]：i种硬币，总金额为j，凑成的组合数量
  * 2、子问题
  *  对于每个硬币，我可以选择使用或不使用，
- *  case 1:如果当前硬币面额Ci>A，则不能使用它,d[i][j]=d[i-1][j]
+ *  case 1:如果当前硬币面额Ci>A，则不能使用它,d[i][j]=d[i-1][j]，第1->i-1种硬币，总和为j
  *  case 2:如果当前硬币面额小于A，分为使用此硬币或不使用此硬币，最终是不使用和使用的组合数之和，d[i][j]=d[i][j-Ci]+d[i-1][j]
  *  case 3:如果当前硬币面额等于A，使用此硬币或不使用此硬币，与case 2相同，d[i][j]=d[i][j-Ci]+d[i-1][j]
  */
@@ -45,7 +45,7 @@ public class LingQianDuiHuan {
         }
         int len = coins.length;
         int d[][] = new int[len+1][amount+1];
-        //base case:需注意！！ 如果amount为0，不需要任何硬币，即1种组合
+        //base case:需注意！！ 如果amount为0，不需要任何硬币，即1种组合；注意不是0，0代表组合不出来。
 //        for (int i = 0; i < len; i++) {//错误点：少了d[len]的初始化
         for (int i = 0; i <= len; i++) {
             d[i][0] = 1;
