@@ -1,3 +1,5 @@
+import com.sun.java.swing.plaf.windows.WindowsTextAreaUI;
+
 import java.util.Stack;
 
 /**
@@ -41,7 +43,10 @@ public class NextGreaterNumber {
 //        for(int i :nextGreaterElement(nums1,nums2)){
 //            System.out.println(i);
 //        }
-        for(int i :nextGreaterElement2(nums2)){
+//        for(int i :nextGreaterElement2(nums2)){
+//            System.out.println(i);
+//        }
+        for(int i :nextGreaterElement3(nums2)){
             System.out.println(i);
         }
     }
@@ -100,6 +105,38 @@ public class NextGreaterNumber {
             }
             s.push(nums[i]);
             r[i] = e;
+        }
+        return r;
+    }
+
+    /**
+     * 循环数组场景下，
+     * {5,2,1,7,6,8,10,9,11,0}->{7,7,7,8,8,10,11,11,-1,5}
+     * 循环数据的场景下，不是只看右边，左边的元素也会看。
+     * 思路：将原数组翻倍，后面接上原数组，再调用nextGreaterElement2算法即可
+     * {5,2,1,7,6,8,10,9,11,0}->{5,2,1,7,6,8,10,9,11,0,5,2,1,7,6,8,10,9,11,0}->从右向左遍历，
+     * 注意：结果数组的小标=数组下标i%n
+     * @param nums
+     * @return
+     */
+    public static int[] nextGreaterElement3(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return null;
+        }
+        int r[] = new int[nums.length];
+        Stack<Integer> s = new Stack<>();
+        for (int i = 2*nums.length-1; i >= 0; i--) {
+            int j = i%nums.length;//计算翻倍数组i在nums中的索引j
+            int e = -1;
+            while (!s.isEmpty()){
+                if(s.peek() > nums[j]){
+                    e = s.peek();
+                    break;
+                }
+                s.pop();
+            }
+            s.push(nums[j]);
+            r[j] = e;
         }
         return r;
     }
