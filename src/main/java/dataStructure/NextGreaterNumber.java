@@ -1,3 +1,5 @@
+package dataStructure;
+
 import com.sun.java.swing.plaf.windows.WindowsTextAreaUI;
 
 import java.util.Stack;
@@ -82,6 +84,7 @@ public class NextGreaterNumber {
      * On版解法
      * 输入nums数组，如[1,2,4,3]
      * 输出结果数组，第i元素代表nums[i]元素右边第一个比它大的元素值，如果没有填充-1，如[2,4,-1,-1]
+     * 单调栈：栈+自上而下单调递增（通过删除比自己小的元素来做保持单调）
      * @param nums
      * @return
      */
