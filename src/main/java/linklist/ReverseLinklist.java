@@ -50,10 +50,9 @@ public class ReverseLinklist {
         if(head == null || head.getNext() == null){
             return head;
         }
-        ListNode n=head.getNext();
+        ListNode h = reverseList2(head.getNext());//1->2->3->4,此时head->1,n->2,h->4；1 4->3->2，需要把n.next=head,head->next=null
+        head.getNext().setNext(head);
         head.setNext(null);
-        ListNode h = reverseList2(n);//1->2->3->4,此时head->1,n->2,h->4；1 4->3->2，需要把n.next=head,head->next=null
-        n.setNext(head);
         return h;
     }
 }
