@@ -12,6 +12,12 @@ import java.util.List;
  * 示例 1：
  * 输入：nums = [1,2,3]
  * 输出：[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+ *
+ * 思路：回溯，回溯框架，递归回溯树；
+ * for 选择列表
+ *  选择一个元素，添加到路径列表；
+ *  递归
+ *  撤销选择，从路径列表中删除；
  */
 public class SubSets {
     private LinkedList<Integer> track = new LinkedList<>();
