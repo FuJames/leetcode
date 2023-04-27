@@ -33,21 +33,29 @@ public class Permutations {
             System.out.println();
         }
     }
+    public List<List<Integer>> permute(int[] nums){
+        boolean used[] = new boolean[nums.length];
+        return permute(nums,used);
+    }
 
-    public List<List<Integer>> permute(int[] nums) {
+    public List<List<Integer>> permute(int[] nums,boolean used[]) {
 
-        if(track.size() == nums.length){//精髓 ！！
+        if(track.size() == nums.length){//精髓 ！！结束条件，专业的 ！
             result.addLast(new LinkedList<>(track));
             return result;
         }
         for (int i = 0; i < nums.length; i++) {
-            if(track.contains(nums[i])){
+//            if(track.contains(nums[i])){//可以用一个boolean数组记录i是否被选择过
+//                continue;
+//            }
+            if(used[i]){
                 continue;
             }
+            used[i]=true;
             track.addLast(nums[i]);
-//            permute(nums,i+1);
-            permute(nums);
+            permute(nums,used);
             track.removeLast();
+            used[i]=false;
         }
         return result;
     }
