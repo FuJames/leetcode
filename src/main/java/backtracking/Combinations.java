@@ -29,6 +29,12 @@ public class Combinations {
         Combinations c= new Combinations();
         c.combine(4,2);
         System.out.println();
+        for (List<Integer> l : c.result){
+            for (int i = 0; i < l.size(); i++) {
+                System.out.print(l.get(i));
+            }
+            System.out.println();
+        }
     }
     public List<List<Integer>> combine(int n, int k) {
         return combine(n,1,k);
