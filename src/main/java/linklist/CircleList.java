@@ -11,6 +11,7 @@ public class CircleList {
         ListNode l4 = new ListNode(2,l3);
         l3.setNext(l1);
         CircleList circleList = new CircleList();
+        System.out.println(circleList.hasCircle(l4));
         System.out.println(circleList.circleNode(l4).getVal());
 
     }
