@@ -10,6 +10,9 @@
 public class Main {
     private static int count = 0;
     public static void main(String[] args) {
+
+        System.out.println(Integer.MAX_VALUE );
+        System.out.println(Integer.MAX_VALUE / 10);
         //边界判定
         //map保存每个数据的关系
         //遍历数组，对于每个a[i]，是否存在n-a[i]这个数字的组合，递归
