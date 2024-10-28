@@ -9,7 +9,9 @@ public class XuanZhuanJuZhen {
         //二维数组初始化
         int[][] a = new int[][]{{1,2,3},{4,5,6},{7,8,9}};
 //        System.out.println(a[0][3]);//会数组越界
-        //方案一：分析矩阵旋转之后相同元素的位置变化，旋转转换方程。a[i][j]->a[j][rows-i-1]
+        //方案一：分析矩阵旋转之后相同元素的位置变化，旋转转换方程。a[i][j]->a[j][rows-1-i]，
+        // 新矩阵的列号为原矩阵的行号（看某一列旋转之后，新元素的位置），
+        // 新矩阵的列号为rows-1-i（看某一行旋转之后新元素的位置）。
         XuanZhuanJuZhen s = new XuanZhuanJuZhen();
         s.rotate(a);
         for(int i = 0 ;i < 3; i++){

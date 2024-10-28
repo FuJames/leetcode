@@ -11,16 +11,20 @@ package tree;
  * 所有左子树和右子树自身必须也是二叉搜索树。
  *
  * 思路：二叉树常规思路，递归。
- * 对于任意节点，其所有左子树都小于根节点，所有右子树大于根节点。
+ * 对于任意节点，其所有左子树都小于根节点，所有右子树大于根节点。且不存在两个节点的值相等。
  * 我们不可能遍历左子树并寻找最小节点，需要增加max和min节点，
  *  当向左子树遍历时，max节点为root节点；当向右子树遍历时，min节点为root节点；min和max递归向下传递；初始状态下，min和max为空。
  */
 public class IsValidBST {
     public static void main(String[] args) {
+        String a="123";
+        a.replaceAll(null,null);
+        System.out.println(a);
         TreeNode l1 = new TreeNode(1,null,null);
         TreeNode r1 = new TreeNode(3,null,null);
         TreeNode root = new TreeNode(2,l1,r1);
-        System.out.println(isValidBST(root));
+//        System.out.println(isValidBST(root));
+
     }
 
     public static boolean isValidBST(TreeNode root) {

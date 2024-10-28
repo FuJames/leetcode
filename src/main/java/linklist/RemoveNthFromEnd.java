@@ -62,7 +62,7 @@ public class RemoveNthFromEnd {
         if(p==null){//注意边界条件：当p为空时，需要删除头结点，可以纸上模拟下[1],1的场景。
             return head.getNext();
         }
-        //注意：q需要指向被删除的前一个节点，所以需要判断p.getNext!=null，而不是p!=null；在纸上模拟演练下。
+        //注意：q需要指向被删除的前一个节点，所 以需要判断p.getNext!=null，而不是p!=null；在纸上模拟演练下。
         while (p.getNext()!=null){
             p=p.getNext();
             q=q.getNext();

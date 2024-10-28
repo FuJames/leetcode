@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author fuqianzhong
  * @date 2020/8/31
@@ -10,7 +15,15 @@
 public class Main {
     private static int count = 0;
     public static void main(String[] args) {
+        System.out.println(" TH ".equals(null));
+        Set<Integer> s = new HashSet<>(Arrays.asList(7597,null));
 
+        System.out.println(s.contains(null));
+        System.out.println("a".equals(null));//string.equals(null) will return false,instead of npe.
+        Long aaa= 1234455667788888l;
+        System.out.println(aaa.toString());
+        System.out.println(String.valueOf(aaa));
+        System.out.println(new ArrayList<>().addAll(null));
         System.out.println(Integer.MAX_VALUE );
         System.out.println(Integer.MAX_VALUE / 10);
         //边界判定
